@@ -1,1 +1,4 @@
 1. 재무제표에서 필요한 항목 전달 받으면 파싱해서 db로 옮기기
+
+dart_fss 참고 사이트
+https://dart-fss.readthedocs.io/en/latest/dart_fs.html
