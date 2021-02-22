@@ -2,3 +2,9 @@
 
 dart_fss 참고 사이트
 https://dart-fss.readthedocs.io/en/latest/dart_fs.html
+
+OpenDartReader
+https://blog.naver.com/freed0om/221951577757 (시각화 잘해놨음)
+
+FN guide 크롤링
+https://hogni.tistory.com/59
