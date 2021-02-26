@@ -58,8 +58,8 @@ class MariaDart():
             spamwriter = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
             spamwriter.writerow([code, error])
 
-mariaDart = MariaDart()
-for c in cjw_pykrx.getStockCode()[5:10]:
-    mariaDart.saveDBJamoo(c, '20200831', ['유동자산', '단기금융상품'], ['VARCHAR(20)', 'BIGINT', 'BIGINT'],'testtable9')
-    mariaDart.maria.commitDB()
-mariaDart.maria.connect.close()
+# mariaDart = MariaDart()
+# for c in cjw_pykrx.getStockCode()[5:10]:
+#     mariaDart.saveDBJamoo(c, '20200831', ['유동자산', '단기금융상품'], ['VARCHAR(20)', 'BIGINT', 'BIGINT'],'testtable9')
+#     mariaDart.maria.commitDB()
+# mariaDart.maria.connect.close()

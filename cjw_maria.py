@@ -1,11 +1,9 @@
 import pymysql
 import pandas as pd
 
-
 class MariaDB():
-    def __init__(self):
-        self.connect = pymysql.connect(host='localhost', user='root', password='0000',
-                       db='cjw_dart', charset='utf8')
+    def __init__(self, host='localhost', user='root', password='1234', db='jamoo', charset='utf8'):
+        self.connect = pymysql.connect(host=host, user=user, password=password,db=db, charset=charset)
         self.cur = self.connect.cursor()
 
     def insertData(self, tablename, data):
@@ -19,13 +17,15 @@ class MariaDB():
     def commitDB(self):
         self.connect.commit()
 
-    def showData(self, tablename):
+    def showData(self, sql):
         try:
-            sql = "SELECT * FROM {}".format(tablename)
+            # sql = "SELECT * FROM {}".format(tablename)
             self.cur.execute(sql)
             df = self.cur.fetchall()
-            df = pd.DataFrame(df)
-            print(df)
+            field_names = [i[0] for i in self.cur.description]
+            df = pd.DataFrame(df, columns=field_names)
+            #print(df)
+            return df
         except Exception as e:
             print(e)
             pass
@@ -50,3 +50,4 @@ class MariaDB():
         df = pd.DataFrame(self.cur.fetchall())
         df.columns = ['tables']
         return list(df['tables'])
+
