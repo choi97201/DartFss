@@ -2,7 +2,7 @@ import pymysql
 import pandas as pd
 
 class MariaDB():
-    def __init__(self, host='localhost', user='root', password='1234', db='jamoo', charset='utf8'):
+    def __init__(self, host='localhost', user='root', password='sa1234', db='jamoo', charset='utf8'):
         self.connect = pymysql.connect(host=host, user=user, password=password,db=db, charset=charset)
         self.cur = self.connect.cursor()
 

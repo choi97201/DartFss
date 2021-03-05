@@ -9,8 +9,8 @@ def play():
     db = "leaderstrading"
     maria = cjw_maria.MariaDB(host, user, password, db)
 
-    sql = 'SELECT NAME, ID, ClientID, CompleteTime, StrategyName, TradingType, Status \
-        FROM trading_history \
+    sql = 'SELECT * from \
+        FROM trading_history where clientid=\'dnsdydqn4\'\
         ORDER BY ClientID, NAME, CompleteTime ASC;'
     ordered_df = maria.showData(sql)
     
@@ -40,12 +40,9 @@ def play():
             cols.append(boyoo.columns[i])
             cols.append(boyoo.columns[i+1])
 
-
-
     boyoo = boyoo[cols]
-    boyoo.columns
     woonyong = []
-
+    print(list(boyoo.columns))
     for i in range(0, len(list(boyoo.columns)), 2):
         data = list(boyoo[boyoo.columns[i:i+2]].dropna()[boyoo.columns[i]])
         for d in data:
@@ -146,7 +143,6 @@ def play():
     nowtime = str(datetime.datetime.now()).replace(' ', '_').replace(':', '.') + '.csv'
     df.to_csv(nowtime, encoding='utf-8-sig', index=False)
     return df
-
     
 if __name__ == '__main__':
     df = play()
